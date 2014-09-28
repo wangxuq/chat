@@ -1,0 +1,16 @@
+<!doctype>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>chat</title>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <script>
+            var socket = io.connect('/');
+            socket.on('connected',function(){
+                alert('connected to chat');
+            });
+        </script>
+    </body>
+</html>

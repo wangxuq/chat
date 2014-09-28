@@ -1,0 +1,23 @@
+{
+  "name": "chat",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wangxuq/chat.git"
+  },
+  "author": "wangxuq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangxuq/chat/issues"
+  },
+  "homepage": "https://github.com/wangxuq/chat",
+  "dependencies": {
+    "express": "^4.9.5",
+    "socket.io": "^1.1.0"
+  }
+}
