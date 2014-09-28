@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/wangxuq/chat",
   "dependencies": {
+    "bower": "^1.3.11",
     "express": "^4.9.5",
     "socket.io": "^1.1.0"
   }

@@ -1,0 +1,17 @@
+{
+  "name": "chat",
+  "version": "0.0.0",
+  "homepage": "https://github.com/wangxuq/chat",
+  "authors": [
+    "wangxu"
+  ],
+  "description": "manage the UI module",
+  "keywords": [
+    "wangxu"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "angular": "~1.2.25"
+  }
+}

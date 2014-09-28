@@ -5,7 +5,7 @@ var port = process.env.PORT || 3000;
 app.use(express.static(__dirname+'/static'));
 
 app.use(function(req,res){
-    res.sendfile('./static.index.html');
+    res.sendFile('./static.index.html');
 });
 
 var io = require('socket.io').listen(app.listen(port));
