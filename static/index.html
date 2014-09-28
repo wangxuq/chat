@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>chat</title>
-        <link rel="stylesheet" "/style/bootstrap/dist/css/bootstrap.css"></script>
+        <link rel="stylesheet" href="/style/room.css">
+        <link rel="stylesheet" href="/style/bootstrap/dist/css/bootstrap.css"></script>
 
         <script type="text/javascript" src="/socket.io/socket.io.js"></script>
         <script type-"text/javascript" src="/style/jquery/dist/jquery.js"></script>
@@ -11,11 +12,37 @@
         <script type-"text/javascript" src="/style/angular/angular.js"></script>
     </head>
     <body>
-        <script>
+        <!--script>
             var socket = io.connect('/');
             socket.on('connected',function(){
                 alert('connected to chat');
             });
-        </script>
+        </script-->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">chat</a>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top:100px;">
+            <div class="col-md-12">
+                <div class="panel panel-default room">
+                    <div class="panel-heading room-header">chat</div>
+                    <div class="panel-body room-content">
+                        <div class="messages">
+                            <div class="list-group">
+                            </div>
+                        </div>
+                        <form class="message-creator">
+                            <div class=form-group>
+                                <textarea required class="form-control message-input" 
+                                    placeholder="Ctrl+Enter to quick send"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

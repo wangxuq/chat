@@ -9,9 +9,17 @@ app.use(function(req,res){
 });
 
 var io = require('socket.io').listen(app.listen(port));
+var messages = [];
 
 io.sockets.on('connection',function(socket){
-    socket.emit('connected');
+    socket.on('getAllmessages',function(){
+        socket.emit('allmessages',messages);
+    });
+    socket.on('createMessage',function(message){
+        messages.push(message);
+        io.sockets.emit('messageAdded',message);
+    });
 });
+
 
 console.log('chat is on port' + port +'!');
