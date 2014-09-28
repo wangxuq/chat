@@ -1,5 +1,5 @@
 <!doctype>
-<html>
+<html ng-app="techNodeApp">
     <head>
         <meta charset="UTF-8">
         <title>chat</title>
@@ -7,17 +7,15 @@
         <link rel="stylesheet" href="/style/bootstrap/dist/css/bootstrap.css"></script>
 
         <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-        <script type-"text/javascript" src="/style/jquery/dist/jquery.js"></script>
-        <script type-"text/javascript" src="/style/bootstrap/dist/js/bootstrap.js"></script>
-        <script type-"text/javascript" src="/style/angular/angular.js"></script>
+        <script type="text/javascript" src="/style/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="/style/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/style/angular/angular.js"></script>
+
+        <script type="text/javascript" src="/technode.js"></script>
+        <script type="text/javascript" src="/directive/auto-scroll-to-bottom.js"></script>
+        <script type="text/javascript" src="/directive/ctrl-enter-break-line.js"></script>
     </head>
     <body>
-        <!--script>
-            var socket = io.connect('/');
-            socket.on('connected',function(){
-                alert('connected to chat');
-            });
-        </script-->
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -27,17 +25,20 @@
         </div>
         <div class="container" style="margin-top:100px;">
             <div class="col-md-12">
-                <div class="panel panel-default room">
+                <div class="panel panel-default room" ng-controller="RoomCtrl">
                     <div class="panel-heading room-header">chat</div>
                     <div class="panel-body room-content">
-                        <div class="messages">
-                            <div class="list-group">
+                        <div class="list-group messages" auto-scroll-to-bottom>
+                            <div class="list-group-item message" 
+                                 ng-repeat="message in messages">
+                            someone : {{message}}
                             </div>
                         </div>
-                        <form class="message-creator">
+                        <form class="message-creator" ng-controller="MessageCreatorCtrl">
                             <div class=form-group>
                                 <textarea required class="form-control message-input" 
-                                    placeholder="Ctrl+Enter to quick send"></textarea>
+                                  ng-model="newMessage" ctrl-enter-break-line="createMessage()"
+                                  placeholder="Ctrl+Enter to quick send"></textarea>
                             </div>
                         </form>
                     </div>
