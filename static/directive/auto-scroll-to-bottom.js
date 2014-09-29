@@ -11,6 +11,6 @@ angular.module('techNodeApp').directive('autoScrollToBottom',function(){
                     },1000);
                 }
             );
-        };
+        }
     }
 })
