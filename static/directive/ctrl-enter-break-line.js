@@ -1,5 +1,5 @@
-angular.module('techNodeApp').directive('ctrl-enter-break-line',function(){
-    return function(scope,element,attrs){
+angular.module('techNodeApp').directive('ctrlEnterBreakLine',function(){
+    return function($scope,$element,$attrs){
         var ctrlDown = false;
         element.bind('keydown',function(evt){
             if(evt.which === 17){
@@ -10,10 +10,10 @@ angular.module('techNodeApp').directive('ctrl-enter-break-line',function(){
             }
             if(evt.which === 13){
                 if(ctrlDown){
-                    element.val(element.val() + '\n')
+                    $element.val($element.val() + '\n')
                 }else{
-                    scope.$apply(function(){
-                        scope.$eval(attrs.ctrlEnterBreakLine);
+                    $scope.$apply(function(){
+                        $scope.$eval($attrs.ctrlEnterBreakLine);
                     });
                     evt.preventDefault();
                 }

@@ -5,12 +5,12 @@ angular.module('techNodeApp').factory('socket',function($rootScope){
     var socket = io.connect('/');
     return {
         on : function(eventName,callback){
-            socket.on(eventName,callback){
+            socket.on(eventName,function(){
                 var args = arguments;
                 $rootScope.$apply(function(){
                     callback.apply(socket,args);
-                });
-            }
+                })
+            })
         },
         emit : function(eventName,data,callback){
             socket.emit(eventName,data,function(
@@ -39,7 +39,7 @@ angular.module('techNodeApp').controller('RoomCtrl',function($scope,socket){
 
 //define MessageCreatorCtrl
 angular.module('techNodeApp').controller('MessageCreatorCtrl',function($scope,socket){
-    $scope.newMessage = '';
+    $scope.newMessage ='';
     $scope.createMessage = function(){
         if($scope.newMessage == ''){
             return ;
@@ -47,4 +47,4 @@ angular.module('techNodeApp').controller('MessageCreatorCtrl',function($scope,so
         socket.emit('createMessage',$scope.newMessage);
         $scope.newMessage = '';
     }
-}));
+);

@@ -1,10 +1,10 @@
 <!doctype html>
-<html ng-app="techNodeApp">
+<html lang="zh-CN" ng-app="techNodeApp">
     <head>
         <meta charset="UTF-8">
         <title>chat</title>
-        <link rel="stylesheet" href="/style/room.css">
-        <link rel="stylesheet" href="/style/bootstrap/dist/css/bootstrap.css"></script>
+        <link rel="stylesheet" href="/style/room.css" />
+        <link rel="stylesheet" href="/style/bootstrap/dist/css/bootstrap.css" />
 
         <script type="text/javascript" src="/socket.io/socket.io.js"></script>
         <script type="text/javascript" src="/style/jquery/dist/jquery.js"></script>
@@ -16,6 +16,7 @@
         <script type="text/javascript" src="/directive/ctrl-enter-break-line.js"></script>
     </head>
     <body>
+    <div ng-app="techNodeApp">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -28,7 +29,7 @@
                 <div class="panel panel-default room" ng-controller="RoomCtrl">
                     <div class="panel-heading room-header">chat</div>
                     <div class="panel-body room-content">
-                        <div class="list-group messages" auto-scroll-to-bottom>
+                        <div class="list-group messages" autoScrollToBottom>
                             <div class="list-group-item message" 
                                  ng-repeat="message in messages">
                             someone : {{message}}
@@ -37,7 +38,7 @@
                         <form class="message-creator" ng-controller="MessageCreatorCtrl">
                             <div class=form-group>
                                 <textarea required class="form-control message-input" 
-                                  ng-model="newMessage" ctrl-enter-break-line="createMessage()"
+                                  ng-model="newMessage" ctrlEnterBreakLine="createMessage()"
                                   placeholder="Ctrl+Enter to quick send"></textarea>
                             </div>
                         </form>
@@ -45,5 +46,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </body>
 </html>
