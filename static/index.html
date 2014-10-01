@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="/style/bootstrap/dist/css/bootstrap.css" />
 
         <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-        <script type="text/javascript" src="/style/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="/style/jquery/dist/jquery.js"></script>
         <script type="text/javascript" src="/style/bootstrap/dist/js/bootstrap.js"></script>
         <script type="text/javascript" src="/style/angular/angular.js"></script>
 
@@ -29,7 +29,7 @@
                 <div class="panel panel-default room" ng-controller="RoomCtrl">
                     <div class="panel-heading room-header">chat</div>
                     <div class="panel-body room-content">
-                        <div class="list-group messages" autoScrollToBottom>
+                        <div class="list-group messages" autoScrollToBottom >
                             <div class="list-group-item message" 
                                  ng-repeat="message in messages">
                                 someone : {{message}}
