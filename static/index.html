@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" ng-app="techNodeApp">
+<html  ng-app="techNodeApp">
     <head>
         <meta charset="UTF-8">
         <title>chat</title>
@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="/style/bootstrap/dist/css/bootstrap.css" />
 
         <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-        <script type="text/javascript" src="/style/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="/style/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="/style/bootstrap/dist/js/bootstrap.js"></script>
         <script type="text/javascript" src="/style/angular/angular.js"></script>
 
@@ -32,7 +32,7 @@
                         <div class="list-group messages" autoScrollToBottom>
                             <div class="list-group-item message" 
                                  ng-repeat="message in messages">
-                            someone : {{message}}
+                                someone : {{message}}
                             </div>
                         </div>
                         <form class="message-creator" ng-controller="MessageCreatorCtrl">

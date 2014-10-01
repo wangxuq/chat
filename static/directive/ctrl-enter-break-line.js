@@ -13,7 +13,7 @@ angular.module('techNodeApp').directive('ctrlEnterBreakLine',function(){
                     $element.val($element.val() + '\n')
                 }else{
                     $scope.$apply(function(){
-                        $scope.$eval($attrs.ctrlEnterBreakLine);
+                       $scope.$eval($attrs.ctrlEnterBreakLine);
                     });
                     evt.preventDefault();
                 }
