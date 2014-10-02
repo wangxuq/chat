@@ -1,7 +1,7 @@
 angular.module('techNodeApp').directive('ctrlEnterBreakLine',function(){
     return function($scope,$element,$attrs){
         var ctrlDown = false;
-        element.bind('keydown',function(evt){
+        $element.bind('keydown',function(evt){
             if(evt.which === 17){
                 ctrlDown = true;
                 setTimeout(function(){
