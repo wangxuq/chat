@@ -42,7 +42,7 @@ angular.module('techNodeApp').controller('MessageCreatorCtrl',function($scope,so
     $scope.newMessage ='';
     $scope.createMessage = function(){
         if($scope.newMessage == ''){
-            return ;
+            return newMessage = '';
         }
         socket.emit('createMessage',$scope.newMessage);
         $scope.newMessage = '';

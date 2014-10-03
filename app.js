@@ -19,7 +19,9 @@ io.sockets.on('connection',function(socket){
     });
     socket.on('createMessage',function(message){
         messages.push(message);
-        socket.emit('messageAdded',message);
+        io.sockets.emit('messageAdded',message);
+
+        console.log("message is " + message);
     });
 });
 
