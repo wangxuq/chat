@@ -28,13 +28,13 @@ angular.module('techNodeApp').factory('socket',function($rootScope){
 //define RoomCtrl
 angular.module('techNodeApp').controller('RoomCtrl',function($scope,socket){
     $scope.messages = [];
-    socket.emit('getAllMessages');
-    socket.on('allMessages',function(messages){
+    socket.on('getAllMessages',function(messages){
         $scope.messages = messages;
     });
     socket.on('messageAdded',function(message){
         $scope.messages.push(message);
     });
+    socket.emit("getAllMessages");
 })
 
 //define MessageCreatorCtrl
@@ -42,7 +42,7 @@ angular.module('techNodeApp').controller('MessageCreatorCtrl',function($scope,so
     $scope.newMessage ='';
     $scope.createMessage = function(){
         if($scope.newMessage == ''){
-            return newMessage = '';
+            return ;
         }
         socket.emit('createMessage',$scope.newMessage);
         $scope.newMessage = '';

@@ -15,7 +15,7 @@ var messages = [];
 
 io.sockets.on('connection',function(socket){
     socket.on('getAllMessages',function(){
-        socket.emit('allMessages',messages);
+        socket.emit('getAllMessages',messages);
     });
     socket.on('createMessage',function(message){
         messages.push(message);
