@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 3000;
 var path = require('path');
-
+var hello = "nihao"//test the project's current state 
 app.use(express.static(__dirname+'/static'));
 
 app.use(function(req,res){
