@@ -21,6 +21,9 @@
     "express": "^4.9.5",
     "path": "^0.4.9",
     "socket.io": "^1.1.0",
-    "indexof": "0.0.1"
+    "indexof": "0.0.1",
+    "mongoose": "~3.8.24",
+    "async": "~0.9.0",
+    "gravatar": "~1.1.0"
   }
 }
