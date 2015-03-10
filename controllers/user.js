@@ -1,4 +1,4 @@
-var db = require('../models');
+var db = require('../static/models');
 var async = require('async');
 var gravatar = require('gravatar');
 
