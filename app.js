@@ -2,15 +2,26 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 3000;
 var path = require('path');
-var Controllers = require('./controllers');
+var UserControllers = require('./controllers/user');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
-app.use(express.bodyParser());
-app.use(express.cookieParser());
+app.use(bodyParser({"Content-Type":"application/x-www-form-urlencoded" }));
+app.use(cookieParser());
+/*
 app.use(express.session({
     secret : chat,
     cookie : {
         maxAge : 60*1000
     }
+}));
+*/
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
 }));
 
 app.use(express.static(__dirname+'/static'));
@@ -22,7 +33,7 @@ app.use(function(req,res){
 app.get('/api/validate',function(req,res){
     _userId = req.session._userId;
     if(_userId){
-        Controllers.User.findUserById(_userId,function(err,callback){
+        UserControllers.User.findUserById(_userId,function(err,callback){
             if(err){
                 res.json(401,{msg : err});
             }else{
@@ -36,7 +47,7 @@ app.get('/api/validate',function(req,res){
 app.post('/api/login',function(req,res){
     email = req.body.email;
     if(email){
-        Controllers.User.findByEmailOrCreate(email,function(err,user){
+        UserControllers.User.findByEmailOrCreate(email,function(err,user){
             if(err){
                 res.json(500,{msg : err});
             }else{

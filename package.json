@@ -17,13 +17,16 @@
   },
   "homepage": "https://github.com/wangxuq/chat",
   "dependencies": {
+    "async": "~0.9.0",
+    "body-parser": "^1.12.0",
     "bower": "^1.3.11",
+    "cookie-parser": "^1.3.4",
     "express": "^4.9.5",
-    "path": "^0.4.9",
-    "socket.io": "^1.1.0",
+    "express-session": "^1.10.3",
+    "gravatar": "~1.1.0",
     "indexof": "0.0.1",
     "mongoose": "~3.8.24",
-    "async": "~0.9.0",
-    "gravatar": "~1.1.0"
+    "path": "^0.4.9",
+    "socket.io": "^1.1.0"
   }
 }
