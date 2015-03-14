@@ -1,5 +1,5 @@
-angular.module("techNodeApp").config(function($routeProvider,$localProvider){
-    $localProvider.html5Mode(true);
+angular.module("techNodeApp").config(function($routeProvider,$locationProvider){
+    $locationProvider.html5Mode(true);
     $routeProvider.when('/',{
         templateUrl : '/pages/room.html',
         controller : 'RoomCtrl'

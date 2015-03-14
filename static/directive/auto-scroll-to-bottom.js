@@ -7,7 +7,7 @@ angular.module('techNodeApp').directive('autoScrollToBottom',function(){
                 },
                 function(){
                     element.animate({
-                        scrollTop : element.prop('scrollHeight');
+                        scrollTop : element.prop('scrollHeight')
                     },1000);
                 }
             );

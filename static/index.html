@@ -9,8 +9,10 @@
         <script type="text/javascript" src="/socket.io/socket.io.js"></script>
         <script type="text/javascript" src="/components/jquery/dist/jquery.js"></script>
         <script type="text/javascript" src="/components/bootstrap/dist/js/bootstrap.js"></script>
+
         <script type="text/javascript" src="/components/angular/angular.js"></script>
         <script type="text/javascript" src="/components/angular-route/angular-route.js"></script>
+        <!--<script type="text/javascript" src="/components/angular-ui-route/release/angular-ui-router.js"></script>-->
 
         <script type="text/javascript" src="/technode.js"></script>
         <script type="text/javascript" src="/services/socket.js"></script>
@@ -19,9 +21,10 @@
 
         <script type="text/javascript" src="/controllers/room.js"></script>
         <script type="text/javascript" src="/controllers/message-creator.js"></script>
+        <!--<script type="text/javascript" src="/controllers/login.js"></script>-->
     </head>
     <body>
-    <div ng-app="techNodeApp">
+    <div >
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -29,16 +32,16 @@
                 </div>
             </div>
         </div>
-        <nav class="collapse navbar-collapse" role="navigation">
-            <ul class="nav navbar-nav navbar-right" ng-show="me">
-                <li>
-                    <img ng-src="{{me.gravatar}}" title="me.name" class="img-rounded" />
-                </li>
-                <li>
-                    <a href="" ng-click="logout()">Log out</a>
-                </li>
-            </ul>
-        </nav>
+        <!--<nav class="collapse navbar-collapse" role="navigation">-->
+            <!--<ul class="nav navbar-nav navbar-right" ng-show="me">-->
+                <!--<li>-->
+                    <!--<img ng-src="{{me.gravatar}}" title="me.name" class="img-rounded" />-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="" ng-click="logout()">Log out</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</nav>-->
         <div class="container" style="margin-top:100px;">
             <div class="row" ng-view></div>
         </div>    

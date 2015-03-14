@@ -2,21 +2,17 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 3000;
 var path = require('path');
-var UserControllers = require('./controllers/user');
+
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
+var UserControllers = require('./controllers/user');
+
+
 app.use(bodyParser({"Content-Type":"application/x-www-form-urlencoded" }));
 app.use(cookieParser());
-/*
-app.use(express.session({
-    secret : chat,
-    cookie : {
-        maxAge : 60*1000
-    }
-}));
-*/
+
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
