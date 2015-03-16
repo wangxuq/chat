@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>chat</title>
+        <base href="/" />
         <link rel="stylesheet" href="/style/room.css" />
         <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css" />
 
@@ -32,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <!--<nav class="collapse navbar-collapse" role="navigation">
+        <nav class="collapse navbar-collapse" role="navigation">
             <ul class="nav navbar-nav navbar-right" ng-show="me">
                 <li>
                     <img ng-src="{{me.gravatar}}" title="me.name" class="img-rounded" />
@@ -41,7 +42,7 @@
                     <a href="" ng-click="logout()">Log out</a>
                 </li>
             </ul>
-        </nav>-->
+        </nav>
         <div class="container" style="margin-top:100px;">
             <div class="row" ng-view></div>
         </div>    
