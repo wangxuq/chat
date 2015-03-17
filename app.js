@@ -3,22 +3,31 @@ var app = express();
 var port = process.env.PORT || 3000;
 var path = require('path');
 
+//express 3.x remove some plugin,so you must add the plugin manual
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
 var UserControllers = require('./controllers/user');
 
+//add socket.io authentication
+var parseSignedCookie = require('utils').parseSignedCookie;
+var MongoStore = require('connect-mongo')(express);
+var Cookie = require('Cookie');
+var sessionStore = new MongoStore({
+    url : 'mongodb://loaclhost/technode'
+});
+app.use(session({
+    secret: 'technode',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true },
+    store : sessionStore
+}));
+
 
 app.use(bodyParser({"Content-Type":"application/x-www-form-urlencoded" }));
 app.use(cookieParser());
-
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}));
 
 app.use(express.static(__dirname+'/static'));
 app.use(function(req,res){
@@ -65,6 +74,32 @@ app.get('/api/logout',function(req,res){
 
 
 var io = require('socket.io').listen(app.listen(port));
+
+//add socket.io authentication
+io.set('authorization',function(handshakeData,accept){
+    handshakeData.cookie = Cookie.parse(handshakeData.headers.cookie);
+    var connectSid = handshakeData.cookie['connect.sid'];
+    connectSid = parseSignedCookie(connectSid,'technode');
+
+    if(connectSid){
+        sessionStore.get(connectSid,function(err,session){
+            if(error){
+                accept(error.message,false);
+            }else{
+                handshakeData.session = session;
+                if(session._userId){
+                    accept(null,true);
+                }else{
+                    accept('No Login');
+                }
+            }
+        })
+    }else{
+        accept('No Session');
+    }
+});
+
+
 var messages = [];
 
 io.sockets.on('connection',function(socket){
@@ -78,4 +113,6 @@ io.sockets.on('connection',function(socket){
         console.log("message is " + message);
     });
 });
+
+
 console.log('chat is on port ' + port +'!');
