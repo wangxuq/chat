@@ -1,3 +1,4 @@
+//define the LoginCtrl
 angular.module('techNodeApp').controller('LoginCtrl',function($scope,$http,$location){
     $scope.login = function() {
         $http({
