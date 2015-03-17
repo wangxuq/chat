@@ -12,7 +12,7 @@ var UserControllers = require('./controllers/user');
 
 //add socket.io authentication
 var parseSignedCookie = require('connect').utils.parseSignedCookie;
-var MongoStore = require('connect-mongo')(express);
+var MongoStore = require('connect-mongo')(expressSession);
 var Cookie = require('Cookie');
 var sessionStore = new MongoStore({
     url : 'mongodb://loaclhost/technode'
@@ -21,7 +21,7 @@ app.use(expressSession({
     secret: 'technode',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true },
+    cookie: { maxAge : 60 * 1000 * 60 },
     store : sessionStore
 }));
 
