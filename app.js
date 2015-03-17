@@ -6,7 +6,7 @@ var path = require('path');
 //express 3.x remove some plugin,so you must add the plugin manual
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
+var expressSession = require('express-session');
 
 var UserControllers = require('./controllers/user');
 
@@ -17,7 +17,7 @@ var Cookie = require('Cookie');
 var sessionStore = new MongoStore({
     url : 'mongodb://loaclhost/technode'
 });
-app.use(session({
+app.use(expressSession({
     secret: 'technode',
     resave: false,
     saveUninitialized: true,
@@ -82,12 +82,12 @@ io.set('authorization',function(handshakeData,accept){
     connectSid = parseSignedCookie(connectSid,'technode');
 
     if(connectSid){
-        sessionStore.get(connectSid,function(err,session){
+        sessionStore.get(connectSid,function(error,session){
             if(error){
                 accept(error.message,false);
             }else{
                 handshakeData.session = session;
-                if(session._userId){
+                if(expressSession._userId){
                     accept(null,true);
                 }else{
                     accept('No Login');
