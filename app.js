@@ -11,7 +11,7 @@ var session = require('express-session');
 var UserControllers = require('./controllers/user');
 
 //add socket.io authentication
-var parseSignedCookie = require('utils').parseSignedCookie;
+var parseSignedCookie = require('connect').utils.parseSignedCookie;
 var MongoStore = require('connect-mongo')(express);
 var Cookie = require('Cookie');
 var sessionStore = new MongoStore({
