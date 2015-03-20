@@ -26,7 +26,8 @@ app.use(expressSession({
 }));
 
 
-app.use(bodyParser({"Content-Type":"json/urlencoded" }));
+/*app.use(bodyParser({"Content-Type":"json/urlencoded" }));*/
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(express.static(__dirname+'/static'));
