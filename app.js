@@ -11,11 +11,11 @@ var expressSession = require('express-session');
 var UserControllers = require('./controllers/user');
 
 //add socket.io authentication
-var parseSignedCookie = require('connect').utils.parseSignedCookie;
+/*var parseSignedCookie = require('connect').cookieParser;*/
 var MongoStore = require('connect-mongo')(expressSession);
 var Cookie = require('Cookie');
 var sessionStore = new MongoStore({
-    url : 'mongodb://loaclhost/technode'
+    url : 'mongodb://localhost/technode'
 });
 app.use(expressSession({
     secret: 'technode',
@@ -26,7 +26,7 @@ app.use(expressSession({
 }));
 
 
-app.use(bodyParser({"Content-Type":"application/x-www-form-urlencoded" }));
+app.use(bodyParser({"Content-Type":"json/urlencoded" }));
 app.use(cookieParser());
 
 app.use(express.static(__dirname+'/static'));
@@ -79,8 +79,8 @@ var io = require('socket.io').listen(app.listen(port));
 io.set('authorization',function(handshakeData,accept){
     handshakeData.cookie = Cookie.parse(handshakeData.headers.cookie);
     var connectSid = handshakeData.cookie['connect.sid'];
-    connectSid = parseSignedCookie(connectSid,'technode');
-
+/*    connectSid = parseSignedCookie(connectSid,'technode');*/
+    connectSid = cookieParser.signedCookie(connectSid,'technode');
     if(connectSid){
         sessionStore.get(connectSid,function(error,session){
             if(error){
