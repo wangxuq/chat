@@ -34,7 +34,6 @@ app.use(express.static(__dirname+'/static'));
 app.use(function(req,res){
     res.sendFile(path.join(__dirname, './static', 'index.html'));
 });
-
 //the interface of login validate
 app.get('/api/validate',function(req,res){
     _userId = req.session._userId;

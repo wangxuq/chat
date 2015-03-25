@@ -1,5 +1,3 @@
-//var ngRoute = require("angular-route");
-
 angular.module('techNodeApp',['ngRoute']).
 run(function($window,$rootScope,$http,$location){
     $http({

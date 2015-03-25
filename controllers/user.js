@@ -6,7 +6,7 @@ exports.findUserById = function (_userId,callback) {
     db.User.findOne({
         _id : _userId
     },callback);
-}
+};
 
 exports.findByEmailOrCreate = function(email,callback){
     db.User.findOne({
