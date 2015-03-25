@@ -76,10 +76,9 @@ app.get('/api/logout',function(req,res){
 var io = require('socket.io').listen(app.listen(port));
 
 //add socket.io authentication
-io.set('authorization',function(handshakeData,accept){
+/*io.set('authorization',function(handshakeData,accept){
     handshakeData.cookie = Cookie.parse(handshakeData.headers.cookie);
     var connectSid = handshakeData.cookie['connect.sid'];
-/*    connectSid = parseSignedCookie(connectSid,'technode');*/
     connectSid = cookieParser.signedCookie(connectSid,'technode');
     if(connectSid){
         sessionStore.get(connectSid,function(error,session){
@@ -97,7 +96,7 @@ io.set('authorization',function(handshakeData,accept){
     }else{
         accept('No Session');
     }
-});
+});*/
 
 
 var messages = [];
