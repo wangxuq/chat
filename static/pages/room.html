@@ -5,7 +5,9 @@
             <div class="list-group messages" auto-scroll-to-bottom >
                 <div class="list-group-item message"
                      ng-repeat="message in messages track by $index">
-                    someone : {{message}}
+                    <img ng-src="{{message.creator.avatarUrl}}" title="{{message.creator.name}}"
+                            class="img-rounded" />
+                    {{message.creator.name}}:{{message.message}}
                 </div>
             </div>
             <form class="message-creator" ng-controller="MessageCreatorCtrl">

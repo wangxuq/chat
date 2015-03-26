@@ -98,14 +98,13 @@ var io = require('socket.io').listen(app.listen(port));
     }
 });*/
 
-
 var messages = [];
 
 io.sockets.on('connection',function(socket){
     socket.on('getAllMessages',function(){
         socket.emit('allMessages',messages);
     });
-    socket.on('createMessage',function(message){
+    socket.on('messages.create',function(message){
         messages.push(message);
         io.sockets.emit('messageAdded',message);
 
