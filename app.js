@@ -30,7 +30,7 @@ app.use(expressSession({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(express.static(__dirname+'/static'));
+app.use(express.static(__dirname + '/static'));
 app.use(function(req,res){
     res.sendFile(path.join(__dirname, './static', 'index.html'));
 });
@@ -38,7 +38,7 @@ app.use(function(req,res){
 app.get('/api/validate',function(req,res){
     _userId = req.session._userId;
     if(_userId){
-        UserControllers.User.findUserById(_userId,function(err,callback){
+        UserControllers.User.findUserById(_userId,function(err,user){
             if(err){
                 res.json(401,{msg : err});
             }else{
@@ -61,7 +61,7 @@ app.post('/api/login',function(req,res){
             }
         })
     }else{
-        res.json(401);
+        res.json(403);
     }
 });
 //logout validate
