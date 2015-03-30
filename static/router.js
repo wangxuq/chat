@@ -1,12 +1,15 @@
 angular.module("techNodeApp").config(function($routeProvider,$locationProvider){
     $locationProvider.html5Mode(true);
-    $routeProvider.when('/',{
+    $routeProvider.
+        when('/',{
         templateUrl : '/pages/room.html',
         controller : 'RoomCtrl'
-    }).when('/login',{
+    }).
+        when('/login',{
         templateUrl : '/pages/login.html',
         controller : 'LoginCtrl'
-    }).otherwise({
+    }).
+        otherwise({
         redirectTo : '/login'
     });
 });
